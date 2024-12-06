@@ -1,0 +1,7 @@
+data:
+  input_dir: "D:/Data/Multi Cancer/Multi Cancer/Cervical Cancer"
+  output_dir: "D:/Data/cervical_cancer_data"
+  split_ratios:
+    train: 0.7
+    val: 0.2
+    test: 0.1
