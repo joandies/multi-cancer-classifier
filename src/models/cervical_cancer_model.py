@@ -1,7 +1,7 @@
-import torch
 import torch.nn as nn
 import torchvision.models as models
 from torchvision.models import ResNet50_Weights
+
 
 class CervicalModel(nn.Module):
     def __init__(self, num_classes):
@@ -20,9 +20,3 @@ class CervicalModel(nn.Module):
     def forward(self, x):
         return self.base_model(x)
 
-# Number of classes (subclasses of cervical cancer)
-num_classes = 5
-model = CervicalModel(num_classes)
-
-# Print the model architecture
-print(model)

@@ -5,3 +5,14 @@ data:
     train: 0.7
     val: 0.2
     test: 0.1
+
+num_classes: 5  # Number of subclasses of cervical cancer
+train_dataset_path: 'D:/Data/cervical_cancer_data/train'  # Path to the training dataset
+val_dataset_path: 'D:/Data/cervical_cancer_data/val'  # Path to the validation dataset
+test_dataset_path: 'D:/Data/cervical_cancer_data/test'  # Path to the test dataset
+checkpoints_path: 'results/cervical_checkpoints/'
+reports_path: 'results/reports'
+batch_size: 32  # Batch size for DataLoader
+epochs: 100
+learning_rate: 0.001
+early_stopping_patience: 10
