@@ -35,7 +35,7 @@ Make sure to update the paths in the ```config.yaml``` file to point to your loc
 ### 1. Train the model
 To train the model, use the following command:
 ```bash
-python src/training/train.py
+python -m src/training/train
 ```
 The training script will load the dataset, apply the necessary transformations, and begin training the model. You can track the training progress via [wandb.ai](wandb.ai).
 ### 2. Test the model
