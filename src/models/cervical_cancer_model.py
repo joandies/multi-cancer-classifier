@@ -19,4 +19,3 @@ class CervicalModel(nn.Module):
 
     def forward(self, x):
         return self.base_model(x)
-
