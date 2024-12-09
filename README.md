@@ -22,14 +22,35 @@ pip install -r requirements.txt
 - PyTorch 1.9.0 or higher
 - Weights & Biases account (for training monitoring)
 
-## Dataset
-The dataset used for training and testing consists of cervical cancer images organized into 5 subclasses. The data is split into three directories:
-
-- ```train/```
-- ```validation/```
-- ```test/```
-
-Make sure to update the paths in the ```config.yaml``` file to point to your local dataset directory.
+## Prepare the dataset
+To train and test the model, you need to prepare the cervical cancer dataset. Follow these steps to download and preprocess the data.
+### 1. Download the dataset:
+Download the dataset from [Kaggle](https://www.kaggle.com/datasets/obulisainaren/multi-cancer/data)
+### 2. Organize the data:
+The original dataset is already structured, but make sure it's organized into the following directories:
+```bash
+train/
+validation/
+test/
+```
+This structure is required for the ```prepare_cervical_data.py``` script to work properly.
+### 3. Run the data preparation script
+Run the following script to organize the data into the appropriate folder structure. You can provide the `--input_dir` and `--output_dir` paths directly from the console, or it will use the paths from `config.yaml` by default.
+```bash
+python -m src.data.prepare_data --input_dir <input_dir> --output_dir <output_dir>
+```
+If you want to use the paths from the `config.yaml`, simply run:
+```bash
+python -m src.data.prepare_data
+```
+The script will create the following structure in the output directory:
+```bash
+output_dir
+    └── train/
+    └── validation/
+    └── test/
+```
+Make sure to update the paths in the config.yaml file to point to your local dataset directory.
 
 ## How to use
 ### 1. Train the model

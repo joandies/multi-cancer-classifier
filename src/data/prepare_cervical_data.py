@@ -1,6 +1,7 @@
 import os
 import shutil
 import yaml
+import argparse
 from torch.utils.data import random_split
 from tqdm import tqdm
 
@@ -13,8 +14,17 @@ config_path = os.path.join(project_root, "config.yaml")
 with open(config_path, "r") as file:
     config = yaml.safe_load(file)
 
-INPUT_DIR = config["data"]["input_dir"]
-OUTPUT_DIR = config["data"]["output_dir"]
+# Argument parser for command-line arguments
+parser = argparse.ArgumentParser(description="Prepare data for cervical cancer classification.")
+parser.add_argument('--input_dir', type=str, default=config["data"]["input_dir"], 
+                    help="Path to the input data directory (default: path from config.yaml).")
+parser.add_argument('--output_dir', type=str, default=config["data"]["output_dir"], 
+                    help="Path to the output data directory (default: path from config.yaml).")
+args = parser.parse_args()
+
+# Paths and split ratios
+INPUT_DIR = args.input_dir
+OUTPUT_DIR = args.output_dir
 SPLIT_RATIOS = config["data"]["split_ratios"]
 
 def create_directories(base_dir, categories):
