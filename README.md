@@ -102,6 +102,14 @@ You can visualize the input image and the model's prediction using matplotlib:
 ```python
 imshow(images[0])  # To show the image
 ```
+## Future Steps
+In the future, this project will be expanded to include classifiers for additional types of cancer, utilizing the same framework and approach as for cervical cancer. These classifiers will help improve the overall cancer classification system, and additional data preprocessing and model tuning may be incorporated for better performance.
+
+Potential additions include:
+- Classifiers for other cancer types available in the dataset.
+- Enhancements in the model's accuracy and efficiency.
+- Deployment of the model as a web service for real-time predictions.
+
 ## Contributing
 Contributions are welcome! If you have any improvements or features you would like to suggest, feel free to fork this repository and submit a pull request.
 
