@@ -15,15 +15,20 @@ training_loss_img = Image.open(training_loss_path)
 validation_accuracy_img = Image.open(validation_accuracy_path)
 validation_loss_img = Image.open(validation_loss_path)
 
-# Merge images horizontally
-def merge_images_horizontally(img1, img2, output_path):
-    total_width = img1.width + img2.width
-    max_height = max(img1.height, img2.height)
-    new_image = Image.new('RGB', (total_width, max_height))
+# Merge images vertically
+def merge_images_vertically(img1, img2, output_path):
+    # Calculate the total height and maximum width
+    total_height = img1.height + img2.height  # The height will be the sum of both images
+    max_width = max(img1.width, img2.width)   # The width will be the widest image
+    # Create a new image with the calculated size
+    new_image = Image.new('RGB', (max_width, total_height))
+    # Paste the first image at the top
     new_image.paste(img1, (0, 0))
-    new_image.paste(img2, (img1.width, 0))
+    # Paste the second image below the first one
+    new_image.paste(img2, (0, img1.height))  # The second image is placed below the first one
+    # Save the resulting image
     new_image.save(output_path)
 
 # Save files
-merge_images_horizontally(training_accuracy_img, training_loss_img, '../results/figs/training_curves.png')
-merge_images_horizontally(validation_accuracy_img, validation_loss_img, '../results/figs/validation_curves.png')
+merge_images_vertically(training_accuracy_img, training_loss_img, '../results/figs/training_curves_vertical.png')
+merge_images_vertically(validation_accuracy_img, validation_loss_img, '../results/figs/validation_curves_vertical.png')
